@@ -1,0 +1,14 @@
+werkuren:
+15/5 1h
+17/5 0.5h
+18/05 2h +1h
+
+
+Vragen:
+-
+
+
+Applicatie uitbreiden:
+-"admin"-scherm om gebruikers toe te voegen of te verwijderen
+-uitslag scherm meerdere weken kunnen bekijken
+-foto bij de naam gebruiker

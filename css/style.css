@@ -1,0 +1,43 @@
+/* General css */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 50px;
+}
+
+a.button {
+  float: center;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  display: block;
+  color: black;
+  border: green;
+  border-style: solid;
+  width: 40%;
+  margin-left: 30%;
+  margin-top: 5px;
+}
+
+a:hover {
+  background-color: #4fab4c;
+  color: black;
+}
+
+a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+a.gebruiker {
+  float: center;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  color: black;
+  border: green;
+  border-style: solid;
+  width: 40%;
+  margin-left: 30%;
+  margin-top: 5px;
+}

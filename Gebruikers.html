@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var settings = {
+          async: true,
+          crossDomain: true,
+          url: "https://cheyennedb-8ae8.restdb.io/rest/start-data-gebruikers",
+          method: "GET",
+          headers: {
+            "content-type": "application/json",
+            "x-apikey": "6648c78d4a707d6098fd4885",
+            "cache-control": "no-cache",
+          },
+        };
+        $.ajax(settings).done(function (response) {
+          var filteredResult = response.filter((x) => x.Groep == 1);
+          filteredResult.forEach((element) => {
+            var counter = 1;
+            $("#div" + counter).append(
+              "<a class='gebruiker'><h2>" + element.Gebruiker + "</h2></a>"
+            );
+            counter++;
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <x id="div1"></x>
+      <x id="div2"></x>
+      <x id="div3"></x>
+      <x id="div4"></x>
+      <x id="div5"></x>
+      <x id="div6"></x>
+      <x id="div7"></x>
+      <x id="div8"></x>
+      <x id="div9"></x>
+      <x id="div10"></x>
+      <x id="div11"></x>
+      <x id="div12"></x>
+      <x id="div13"></x>
+      <x id="div14"></x>
+      <x id="div15"></x>
+      <x id="div16"></x>
+      <x id="div17"></x>
+      <x id="div18"></x>
+      <x id="div19"></x>
+    </div>
+  </body>
+</html>
