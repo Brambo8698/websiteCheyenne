@@ -12,3 +12,10 @@ Applicatie uitbreiden:
 -"admin"-scherm om gebruikers toe te voegen of te verwijderen
 -uitslag scherm meerdere weken kunnen bekijken
 -foto bij de naam gebruiker
+
+
+Scherm cafes:
+11 cafe + de kol dubbel
+
+
+Restdb.io

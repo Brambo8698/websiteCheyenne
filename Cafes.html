@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafe keuze</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="row">
+      <div class="imageOption" onclick="myFunction('cafe1')">
+        <img src="images/Cafe1.jpg" />
+        <h2>Hof van Coolhem</h2>
+      </div>
+      <div class="imageOption" onclick="myFunction('cafe2')">
+        <img src="images/Cafe2.jpg" />
+        <h2>Paepenheide</h2>
+      </div>
+      <div class="imageOption" onclick="myFunction('cafe3')">
+        <img src="images/Cafe3.jpg" />
+        <h2>Bloom</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="imageOption" onclick="myFunction('cafe4')">
+        <img src="images/Cafe4.jpg" />
+        <h2>De waggel</h2>
+      </div>
+      <div class="imageOption" onclick="myFunction('cafe5')">
+        <img src="images/Cafe5.jpg" />
+        <h2>De Kol</h2>
+      </div>
+      <div class="imageOption" onclick="myFunction('cafe6')">
+        <img src="images/Cafe6.jpg" />
+        <h2>WZC Gravenkasteel Sint-Amands</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="imageOption" onclick="myFunction('cafe7')">
+        <img src="images/Cafe7.jpg" />
+        <h2>Winterbar Puurs</h2>
+      </div>
+      <div class="imageOption" onclick="myFunction('cafe8')">
+        <img src="images/Cafe8.jpg" />
+        <h2>De Batterie</h2>
+      </div>
+      <div class="imageOption" onclick="myFunction('cafe9')">
+        <img src="images/Cafe9.jpg" />
+        <h2>Delhaize</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="imageOption" onclick="myFunction('cafe10')">
+        <img src="images/Cafe10.jpg" />
+        <h2>De marktgrave</h2>
+      </div>
+      <div class="imageOption" onclick="myFunction('cafe11')">
+        <img src="images/Cafe11.jpg" />
+        <h2>Vrededaal</h2>
+      </div>
+      <div class="imageOption" onclick="myFunction('cafe12')">
+        <img src="images/Cafe12.jpg" />
+        <h2>De Kol</h2>
+      </div>
+    </div>
+    <script>
+      function myFunction(cafe) {
+        var parameter = window.location;
+        var url = new URL(parameter);
+        var c = url.searchParams.get("gebruiker");
+        var test = getCurrentWeek();
+        console.log(test);
+        //window.location = 'Bedankt.html';
+      }
+    </script>
+    <script>
+      function getCurrentWeek() {
+        const currentDate = new Date();
+        const januaryFirst = new Date(currentDate.getFullYear(), 0, 1);
+        const daysToNextMonday =
+          januaryFirst.getDay() === 1 ? 0 : (7 - januaryFirst.getDay()) % 7;
+        const nextMonday = new Date(
+          currentDate.getFullYear(),
+          0,
+          januaryFirst.getDate() + daysToNextMonday
+        );
+
+        return currentDate < nextMonday
+          ? 52
+          : currentDate > nextMonday
+          ? Math.ceil((currentDate - nextMonday) / (24 * 3600 * 1000) / 7)
+          : 1;
+      }
+    </script>
+  </body>
+</html>

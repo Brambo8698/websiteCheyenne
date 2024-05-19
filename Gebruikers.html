@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Gebruikers</title>
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
@@ -20,11 +20,16 @@
           },
         };
         $.ajax(settings).done(function (response) {
-          var filteredResult = response.filter((x) => x.Groep == 1);
+          var parameter = window.location;
+          var url = new URL(parameter);
+          var groep = url.searchParams.get("groep");
+          var filteredResult = response.filter((x) => x.Groep == groep);
           var counter = 1;
           filteredResult.forEach((element) => {
             $("#div" + (counter % 2)).append(
-              "<a class='gebruiker'><h2>" +
+              "<a class='gebruiker' href='Cafes.html?gebruiker=" +
+                element.Gebruiker +
+                "'><h2>" +
                 element.Gebruiker +
                 "</h2></a></div>"
             );
@@ -34,6 +39,11 @@
         });
       });
     </script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+    </style>
   </head>
   <body>
     <h1 class="loading" id="loading">Laden...</h1>

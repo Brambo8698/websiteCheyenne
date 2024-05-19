@@ -48,10 +48,6 @@ h1.loading {
   text-align: center;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 /* Create two equal columns that floats next to each other */
 .column {
   float: left;
@@ -64,4 +60,32 @@ h1.loading {
   content: "";
   display: table;
   clear: both;
+}
+
+div.row {
+  margin: 5%;
+  text-align: center;
+  float: center;
+}
+
+div.imageOption {
+  float: left;
+  text-align: center;
+  width: 30%;
+  padding: 10px;
+  border: green;
+  border-style: solid;
+  margin-right: 10px;
+  height: 500px;
+}
+
+div.imageOption:hover {
+  background-color: #4fab4c;
+  color: black;
+  cursor: pointer;
+}
+
+img{
+  
+  width: 100%;
 }
