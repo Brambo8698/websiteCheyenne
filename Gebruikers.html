@@ -21,38 +21,25 @@
         };
         $.ajax(settings).done(function (response) {
           var filteredResult = response.filter((x) => x.Groep == 1);
+          var counter = 1;
           filteredResult.forEach((element) => {
-            var counter = 1;
-            $("#div" + counter).append(
-              "<a class='gebruiker'><h2>" + element.Gebruiker + "</h2></a>"
+            $("#div" + (counter % 2)).append(
+              "<a class='gebruiker'><h2>" +
+                element.Gebruiker +
+                "</h2></a></div>"
             );
             counter++;
           });
+          $("#loading").html("");
         });
       });
     </script>
   </head>
   <body>
-    <div>
-      <x id="div1"></x>
-      <x id="div2"></x>
-      <x id="div3"></x>
-      <x id="div4"></x>
-      <x id="div5"></x>
-      <x id="div6"></x>
-      <x id="div7"></x>
-      <x id="div8"></x>
-      <x id="div9"></x>
-      <x id="div10"></x>
-      <x id="div11"></x>
-      <x id="div12"></x>
-      <x id="div13"></x>
-      <x id="div14"></x>
-      <x id="div15"></x>
-      <x id="div16"></x>
-      <x id="div17"></x>
-      <x id="div18"></x>
-      <x id="div19"></x>
+    <h1 class="loading" id="loading">Laden...</h1>
+    <div class="row">
+      <div class="column"><x id="div0" /></div>
+      <div class="column"><x id="div1" /></div>
     </div>
   </body>
 </html>

@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <a class="button" href="Gebruikers.html"><h2>Groep 1</h2></a>
-    <a class="button" href="Gebruikers.html"><h2>Groep 2</h2></a>
+    <a onclick="myFunction(1)"><h2>Groep 1</h2></a>
+    <a onclick="myFunction(1)"><h2>Groep 2</h2></a>
+    <script>
+			function myFunction(groep) {
+				window.location = 'Gebruikers.html?groep=' + groep;
+			}
+		</script>
   </body>
 </html>
