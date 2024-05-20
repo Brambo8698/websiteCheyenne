@@ -4,15 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Groep</title>
+    <link rel="icon" type="image/x-icon" href="images/Favicon.ico" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <a onclick="myFunction(1)"><h2>Groep 1</h2></a>
     <a onclick="myFunction(2)"><h2>Groep 2</h2></a>
+    <a href="Uitslag.html?groep=1">Ga naar de uitslag van groep 1</a>
+    <a href="Uitslag.html?groep=2">Ga naar de uitslag van groep 2</a>
     <script>
-			function myFunction(groep) {
-				window.location = 'Gebruikers.html?groep=' + groep;
-			}
-		</script>
+      function myFunction(groep) {
+        window.location = "Gebruikers.html?groep=" + groep;
+      }
+    </script>
   </body>
 </html>

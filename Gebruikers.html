@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gebruikers</title>
+    <link rel="icon" type="image/x-icon" href="images/Favicon.ico" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
@@ -23,15 +24,18 @@
           var parameter = window.location;
           var url = new URL(parameter);
           var groep = url.searchParams.get("groep");
-          var filteredResult = response.filter((x) => x.Groep == groep);
-          var counter = 1;
+          var filteredResult = response
+            .filter((x) => x.Groep == groep)
+            .sort((a, b) => a.Gebruiker.localeCompare(b.Gebruiker));
+
+          var counter = 0;
           filteredResult.forEach((element) => {
             $("#div" + (counter % 2)).append(
               "<a class='gebruiker' href='Cafes.html?gebruiker=" +
-                element.Gebruiker +
+                element._id +
                 "'><h2>" +
                 element.Gebruiker +
-                "</h2></a></div>"
+                "</h2></a>"
             );
             counter++;
           });

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uitslagen</title>
+    <link rel="icon" type="image/x-icon" href="images/Favicon.ico" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <script>
+    const cafeList = [
+      "",
+      "Hof van Coolhem",
+      "Paepenheide",
+      "Bloom",
+      "De waggel",
+      "De Kol",
+      "WZC Gravenkasteel Sint-Amands",
+      "Winterbar Puurs",
+      "De Batterie",
+      "Delhaize",
+      "De marktgrave",
+      "Vrededaal",
+      "De Kol",
+    ];
+    $(document).ready(function () {
+      var settings = {
+        async: true,
+        crossDomain: true,
+        url: "https://cheyennedb-8ae8.restdb.io/rest/start-data-gebruikers",
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          "x-apikey": "6648c78d4a707d6098fd4885",
+          "cache-control": "no-cache",
+        },
+      };
+      var parameter = window.location;
+      var url = new URL(parameter);
+      var groep = url.searchParams.get("groep");
+      $.ajax(settings).done(function (response) {
+        var votingResultsGroup1 = new Array();
+        response.forEach((userResults) => {
+          for (let x in userResults) {
+            if (
+              x.includes("Week") &&
+              userResults[x] != "" &&
+              userResults.Groep == groep
+            ) {
+              votingResultsGroup1.push({ Week: x, Cafe: userResults[x] });
+            }
+          }
+        });
+
+        var currentWeek = getCurrentWeek();
+        var currentWeekVoting = votingResultsGroup1.filter(
+          (x) => x.Week == "Week" + currentWeek
+        );
+        for (let i = 1; i < 13; i++) {
+          var votes = currentWeekVoting.filter(
+            (x) => x.Cafe == "cafe" + i
+          ).length;
+          if (votes != 0) {
+            $("#div1").append(
+              "<div class='imageResult'><img src='images/Cafe" +
+                i +
+                ".jpg' /><h2>" +
+                cafeList[i] +
+                " heeft " +
+                votes +
+                " stem(men)</h2></div>"
+            );
+          }
+        }
+
+        $("#loading").html("");
+      });
+    });
+  </script>
+  <body>
+    <h1 class="loading" id="loading">Laden...</h1>
+    <div class="row"><div id="div1"></div></div>
+    <script>
+      function getCurrentWeek() {
+        const currentDate = new Date();
+        const januaryFirst = new Date(currentDate.getFullYear(), 0, 1);
+        const daysToNextMonday =
+          januaryFirst.getDay() === 1 ? 0 : (7 - januaryFirst.getDay()) % 7;
+        const nextMonday = new Date(
+          currentDate.getFullYear(),
+          0,
+          januaryFirst.getDate() + daysToNextMonday
+        );
+
+        return currentDate < nextMonday
+          ? 52
+          : currentDate > nextMonday
+          ? Math.ceil((currentDate - nextMonday) / (24 * 3600 * 1000) / 7)
+          : 1;
+      }
+    </script>
+  </body>
+</html>

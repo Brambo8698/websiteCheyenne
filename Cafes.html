@@ -4,10 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cafe keuze</title>
+    <link rel="icon" type="image/x-icon" href="images/Favicon.ico" />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var weekOfTheYear = getCurrentWeek();
+
+        document.getElementById("row1").style.display = "none";
+        document.getElementById("row2").style.display = "none";
+        document.getElementById("row3").style.display = "none";
+        document.getElementById("row4").style.display = "none";
+        document.getElementById(
+          "row" + ((weekOfTheYear % 4) + 1)
+        ).style.display = "block";
+      });
+    </script>
   </head>
   <body>
-    <div class="row">
+    <div class="row" id="row1">
       <div class="imageOption" onclick="myFunction('cafe1')">
         <img src="images/Cafe1.jpg" />
         <h2>Hof van Coolhem</h2>
@@ -21,7 +36,7 @@
         <h2>Bloom</h2>
       </div>
     </div>
-    <div class="row">
+    <div class="row" id="row2">
       <div class="imageOption" onclick="myFunction('cafe4')">
         <img src="images/Cafe4.jpg" />
         <h2>De waggel</h2>
@@ -35,7 +50,7 @@
         <h2>WZC Gravenkasteel Sint-Amands</h2>
       </div>
     </div>
-    <div class="row">
+    <div class="row" id="row3">
       <div class="imageOption" onclick="myFunction('cafe7')">
         <img src="images/Cafe7.jpg" />
         <h2>Winterbar Puurs</h2>
@@ -49,7 +64,7 @@
         <h2>Delhaize</h2>
       </div>
     </div>
-    <div class="row">
+    <div class="row" id="row4">
       <div class="imageOption" onclick="myFunction('cafe10')">
         <img src="images/Cafe10.jpg" />
         <h2>De marktgrave</h2>
@@ -65,11 +80,32 @@
     </div>
     <script>
       function myFunction(cafe) {
+        //get parameters
         var parameter = window.location;
         var url = new URL(parameter);
-        var c = url.searchParams.get("gebruiker");
-        var test = getCurrentWeek();
-        window.location = 'Bedankt.html';
+        var userId = url.searchParams.get("gebruiker");
+        var jsonPropertyName = "Week" + getCurrentWeek();
+        var jsondata = { [jsonPropertyName]: cafe };
+        //settings api call
+        var settings = {
+          async: true,
+          crossDomain: true,
+          url:
+            "https://cheyennedb-8ae8.restdb.io/rest/start-data-gebruikers/" +
+            userId,
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+            "x-apikey": "6648c78d4a707d6098fd4885",
+            "cache-control": "no-cache",
+          },
+          processData: false,
+          data: JSON.stringify(jsondata),
+        };
+        //api update call
+        $.ajax(settings).done(function (response) {
+          window.location = "Bedankt.html";
+        });
       }
     </script>
     <script>
