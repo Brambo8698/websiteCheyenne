@@ -61,6 +61,10 @@
           var votes = currentWeekVoting.filter(
             (x) => x.Cafe == "cafe" + i
           ).length;
+          var text = " stem";
+          if (votes > 1) {
+            text = " stemmen";
+          }
           if (votes != 0) {
             $("#div1").append(
               "<div class='imageResult'><img src='images/Cafe" +
@@ -69,16 +73,20 @@
                 cafeList[i] +
                 " heeft " +
                 votes +
-                " stem(men)</h2></div>"
+                text +
+                "</h2></div>"
             );
           }
         }
 
-        $("#loading").html("");
+        $("#loading").html(
+          "<h2 class='loading' id='loading'>Resultaat van deze week</h2>"
+        );
       });
     });
   </script>
   <body>
+    <a class="backbutton" href="index.html">Ga terug naar het hoofdscherm</a>
     <h1 class="loading" id="loading">Laden...</h1>
     <div class="row"><div id="div1"></div></div>
     <script>

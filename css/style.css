@@ -12,7 +12,7 @@ a {
   text-decoration: none;
   display: block;
   color: black;
-  border: green;
+  border: #fac898;
   border-style: solid;
   width: 40%;
   margin-left: 30%;
@@ -21,13 +21,13 @@ a {
 }
 
 a:hover {
-  background-color: #4fab4c;
+  background-color: #fac898;
   color: black;
   cursor: pointer;
 }
 
 a.active {
-  background-color: #04aa6d;
+  background-color: #fac898;
   color: white;
 }
 
@@ -37,7 +37,7 @@ a.gebruiker {
   text-decoration: none;
   display: block;
   color: black;
-  border: green;
+  border: #fac898;
   border-style: solid;
   width: 50%;
   margin-left: 20%;
@@ -46,12 +46,17 @@ a.gebruiker {
 }
 
 a.gebruiker:hover {
-  background-color: #4fab4c;
+  background-color: #fac898;
   color: black;
   cursor: pointer;
 }
 
 h1 {
+  float: center;
+  text-align: center;
+}
+
+h2 {
   float: center;
   text-align: center;
 }
@@ -81,7 +86,7 @@ div.imageOption {
   text-align: center;
   width: 30%;
   padding: 10px;
-  border: green;
+  border: #fac898;
   border-style: solid;
   margin-right: 10px;
   height: 500px;
@@ -89,7 +94,7 @@ div.imageOption {
 }
 
 div.imageOption:hover {
-  background-color: #4fab4c;
+  background-color: #fac898;
   color: black;
   cursor: pointer;
 }
@@ -99,7 +104,7 @@ div.imageResult {
   text-align: center;
   width: 30%;
   padding: 10px;
-  border: green;
+  border: #fac898;
   border-style: solid;
   margin-right: 10px;
   height: 500px;
@@ -111,6 +116,19 @@ img {
 }
 
 body {
-  background-color: rgb(52, 96, 175, 1);
+  background-color: rgb(52, 96, 175, 0.6);
   opacity: 1;
+}
+
+a.backbutton {
+  position: static;
+  border: #fac898;
+  border-style: solid;
+  padding: 10px;
+  float: left;
+  text-align: center;
+  width: 10%;
+  margin-left: 85%;
+  margin-right: 5%;
+  margin-bottom: 15px;
 }

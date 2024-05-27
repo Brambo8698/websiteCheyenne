@@ -4,9 +4,16 @@ werkuren:
 18/05 2h + 2h
 19/05 1h + 3h
 20/05 3h
+27/05 1h
+
+Todo:
+
 
 Vragen:
 -Als ze stemmen, over welke week gaat dat dan (hangt beetje vanaf hoe uitslag eruit moet zien)
+-> van welke weken willen we uitslag zien
+-hoe werkt het met de verschillende groepen en de cafes?
+-Kleuren
 
 Testen:
 -andere browsers
